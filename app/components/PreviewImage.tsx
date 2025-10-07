@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from 'next/image';
 
 interface PreviewImageProps {
   input: string;
@@ -65,11 +66,12 @@ export default function PreviewImage({ input, output, onNewUpload }: PreviewImag
                 <h3 className="text-lg font-semibold text-white">Original Image</h3>
                 <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
               </div>
-              <div className="bg-black/20 rounded-xl p-3 border border-white/10">
-                <img
+              <div className="bg-black/20 rounded-xl p-3 border border-white/10 relative h-64 md:h-80">
+                <Image
                   src={input}
-                  alt="Original"
-                  className="w-full h-64 md:h-80 rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
+                  alt="Original image before background removal"
+                  fill
+                  className="rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
@@ -84,11 +86,12 @@ export default function PreviewImage({ input, output, onNewUpload }: PreviewImag
                 <h3 className="text-lg font-semibold text-white">Background Removed</h3>
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               </div>
-              <div className="bg-black/20 rounded-xl p-3 border border-green-400/20">
-                <img
+              <div className="bg-black/20 rounded-xl p-3 border border-green-400/20 relative h-64 md:h-80">
+                <Image
                   src={output}
-                  alt="Output"
-                  className="w-full h-64 md:h-80 rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
+                  alt="Processed image with background removed"
+                  fill
+                  className="rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>

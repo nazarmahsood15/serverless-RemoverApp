@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from 'next/link';
+import Image from 'next/image';
 import UploadBox from "./UploadBox";
 import PreviewImage from "./PreviewImage";
 import Loader from "./Loader";
@@ -110,9 +112,9 @@ export default function BgRemoverPage() {
           <nav aria-label="breadcrumb" className="w-full max-w-2xl mb-6 px-4">
             <ol className="flex justify-center space-x-2 text-sm text-gray-400" itemScope itemType="https://schema.org/BreadcrumbList">
               <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <a href="/" itemProp="item" className="hover:text-white transition-colors">
+                <Link href="/" itemProp="item" className="hover:text-white transition-colors">
                   <span itemProp="name">Home</span>
-                </a>
+                </Link>
                 <meta itemProp="position" content="1" />
               </li>
               <li className="before:content-['/'] before:mr-2">
@@ -171,12 +173,14 @@ export default function BgRemoverPage() {
               <div className="w-full text-center space-y-4">
                 <div className="bg-white/10 rounded-2xl p-4 sm:p-6 border border-white/20">
                   <h2 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Image Preview</h2>
-                  <img
-                    src={image}
-                    alt="Uploaded preview for background removal"
-                    className="w-full max-w-sm sm:max-w-md mx-auto rounded-xl border border-white/20 shadow-lg object-contain"
-                    style={{ maxHeight: 'min(400px, 50vh)' }}
-                  />
+                  <div className="w-full max-w-sm sm:max-w-md mx-auto relative" style={{ height: 'min(400px, 50vh)' }}>
+                    <Image
+                      src={image}
+                      alt="Uploaded preview for background removal"
+                      fill
+                      className="rounded-xl border border-white/20 shadow-lg object-contain"
+                    />
+                  </div>
                   <p className="text-gray-300 mt-3 sm:mt-4 text-sm">Processing will start automatically...</p>
                 </div>
               </div>

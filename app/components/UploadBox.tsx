@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import Link from "next/link";
 
 interface UploadBoxProps {
   onUpload: (file: File) => void;
@@ -279,7 +280,7 @@ export default function UploadBox({ onUpload, setImage }: UploadBoxProps) {
                 {isDragging ? 'DROP TO UPLOAD' : 'UPLOAD IMAGE'}
               </h3>
               <p className="text-gray-300 text-lg">
-                Drag & drop or click to browse
+                Drag &amp; drop or click to browse
               </p>
               <div className="flex justify-center gap-4 text-sm text-gray-400">
                 <span>PNG, JPG, WEBP</span>
@@ -354,7 +355,7 @@ export default function UploadBox({ onUpload, setImage }: UploadBoxProps) {
           previews to ensure your images are ready for AI-powered background removal processing.
         </p>
         <p>
-          Whether you're uploading product photos for ecommerce, portrait images for professional
+          Whether you&apos;re uploading product photos for ecommerce, portrait images for professional
           use, or personal photos for social media, our upload system handles all image types with
           secure processing and fast upload speeds.
         </p>
